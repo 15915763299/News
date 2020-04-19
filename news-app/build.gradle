@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "config.gradle"
+
+buildscript {
+    repositories {
+        // 1、自己服务器代理
+//        maven {
+//            url 'http://122.51.102.227:8081/artifactory/android_group/'
+//        }
+        // 2、阿里云代理
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        // 3、原地址
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        // 组件化开发 cc
+        classpath 'com.billy.android:cc-register:1.1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        // 1、自己服务器代理
+//        maven {
+//            url 'http://122.51.102.227:8081/artifactory/android_group/'
+//        }
+        // 2、阿里云代理
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        // 3、原地址
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

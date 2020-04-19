@@ -1,0 +1,67 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    version = [
+            ax_appcompat       : "1.1.0",
+            ax_constraintlayout: "1.1.3",
+            ax_recyclerview    : "1.1.0",
+            retrofit2_retrofit : "2.5.0",
+            retrofit2_converter: "2.5.0",
+            retrofit2_adapter  : "2.5.0",
+            rxandroid          : "2.1.0",
+            rxjava             : "2.2.5",
+            okhttp             : "3.8.0",
+            logging_interceptor: "3.8.1",
+            gson               : "2.8.5",
+            material           : "1.1.0",
+            badgeview          : "1.1.3",
+            loadsir            : "1.3.6",
+            lottie             : "2.8.0",
+            glide              : "4.9.0",
+            smartrefresh       : "1.1.0-alpha-7"
+    ]
+
+    androidX = [
+            appcompat       : "androidx.appcompat:appcompat:$version.ax_appcompat",
+            constraintlayout: "androidx.constraintlayout:constraintlayout:$version.ax_constraintlayout",
+            recyclerview    : "androidx.recyclerview:recyclerview:$version.ax_recyclerview"
+    ]
+
+    retrofit2 = [
+            retrofit       : "com.squareup.retrofit2:retrofit:$version.retrofit2_retrofit",
+            converter_gson : "com.squareup.retrofit2:converter-gson:$version.retrofit2_converter",
+            adapter_rxjava2: "com.squareup.retrofit2:adapter-rxjava2:$version.retrofit2_adapter"
+    ]
+
+    rxjava2 = [
+            rxandroid: "io.reactivex.rxjava2:rxandroid:$version.rxandroid",
+            rxjava   : "io.reactivex.rxjava2:rxjava:$version.rxjava"
+    ]
+
+    okhttp = [
+            okhttp             : "com.squareup.okhttp3:okhttp:$version.okhttp",
+            logging_interceptor: "com.squareup.okhttp3:logging-interceptor:$version.logging_interceptor"
+    ]
+
+    smartrefresh = [
+            layout: "com.scwang.smartrefresh:SmartRefreshLayout:$version.smartrefresh",
+            header: "com.scwang.smartrefresh:SmartRefreshHeader:$version.smartrefresh"
+    ]
+
+    gson = "com.google.code.gson:gson:$version.gson"
+    material = "com.google.android.material:material:$version.material"
+    // 帮View添加角标提示数字
+    badgeview = "q.rorbin:badgeview:$version.badgeview"
+    loadsir = "com.kingja.loadsir:loadsir:$version.loadsir"
+    // 利用JSON文件的方式快速实现动画效果的库，支持AndroidX需要2.8以上（还支持iOS、RN）
+    lottie = "com.airbnb.android:lottie:$version.lottie"
+    glide = "com.github.bumptech.glide:glide:$version.glide"
+
+}

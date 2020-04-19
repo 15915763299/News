@@ -1,0 +1,46 @@
+// apply plugin: 'com.android.library'
+// 接入组件化
+apply from: rootProject.file('cc-settings-2.gradle')
+
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.android.compileSdkVersion
+    buildToolsVersion ext.android.buildToolsVersion
+
+    defaultConfig {
+        if (project.ext.runAsApp) {
+            applicationId 'com.demo.c.news'
+        }
+        minSdkVersion ext.android.minSdkVersion
+        targetSdkVersion ext.android.targetSdkVersion
+        versionCode ext.android.versionCode
+        versionName ext.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+}
+
+dependencies {
+    implementation ext.material
+    implementation ext.smartrefresh.layout
+    implementation ext.smartrefresh.header
+
+    implementation project(":network")
+    implementation project(":common")
+}

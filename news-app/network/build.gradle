@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.android.compileSdkVersion
+    buildToolsVersion ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion ext.android.minSdkVersion
+        targetSdkVersion ext.android.targetSdkVersion
+        versionCode ext.android.versionCode
+        versionName ext.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api ext.okhttp.okhttp
+    api ext.retrofit2.adapter_rxjava2
+    api ext.gson
+
+    implementation ext.retrofit2.retrofit
+    implementation ext.retrofit2.converter_gson
+    implementation ext.rxjava2.rxandroid
+    implementation ext.rxjava2.rxjava
+    implementation ext.okhttp.logging_interceptor
+
+    implementation project(':base')
+}

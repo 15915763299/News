@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.news.dao.NewsMapper">
+
+    <select id="getNewsList" resultType="com.demo.news.dao.model.News">
+        SELECT * FROM T_News n
+        <if test="categoryId != null">
+            INNER JOIN R_News_Category nc ON nc.newsId = n.newsId
+            INNER JOIN T_Category c ON c.categoryId = nc.categoryId
+            WHERE c.categoryId = #{categoryId}
+        </if>
+        ORDER BY n.createTime
+    </select>
+</mapper>

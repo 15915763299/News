@@ -1,0 +1,65 @@
+// apply plugin: 'com.android.application'
+// 接入组件化
+ext.mainApp = true
+apply from: rootProject.file('cc-settings-2.gradle')
+
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.android.compileSdkVersion
+    buildToolsVersion ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.demo.news"
+        minSdkVersion ext.android.minSdkVersion
+        targetSdkVersion ext.android.targetSdkVersion
+        versionCode ext.android.versionCode
+        versionName ext.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 开启双向数据绑定
+    dataBinding {
+        enabled true
+    }
+
+//    lintOptions {
+//        checkReleaseBuilds false
+//        abortOnError false
+//    }
+}
+
+
+dependencies {
+    // 如果需要使用libs，就用文件的形式引入进来，以防引入一些不用的libs
+    // implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation ext.material
+    implementation ext.badgeview
+
+    // 基本操作 chrome://inspect/
+    //implementation 'com.facebook.stetho:stetho:1.5.0'
+    // 网络操作--有网络操作添加
+    //implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    implementation project(":common")
+    implementation project(":network")
+    //会默认添加依赖：project(':news')，在这里添加后，其他模块也可以引用
+    addComponent 'news'
+    addComponent 'user'
+}
+
+// ---------------------app---------------------
+// common network     news          user
+// base   base    common network    common
+//                base   base       base

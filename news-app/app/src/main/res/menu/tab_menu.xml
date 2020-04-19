@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@mipmap/tabbar_home"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/menu_categories"
+        android:icon="@mipmap/tab_bar_category_ic"
+        android:title="@string/menu_categories" />
+
+    <item
+        android:id="@+id/menu_services"
+        android:icon="@mipmap/tabbar_crux"
+        android:title="@string/menu_services" />
+
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@mipmap/tabbar_account"
+        android:title="@string/menu_account" />
+</menu>

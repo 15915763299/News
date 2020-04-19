@@ -1,0 +1,42 @@
+server:
+  port: 8888
+#  servlet:
+#    context-path: /demo
+  ssl:
+    #keyStore密钥库，存放了服务端证书的私钥、公钥和证书
+    key-store: classpath:serverCA.p12
+    key-store-password: 123456
+    keyStoreType: PKCS12
+    keyAlias: 1
+
+spring:
+  datasource:
+    # 允许多语句查询 https://www.cnblogs.com/looyeagee/p/12059255.html
+    url: jdbc:mysql://122.51.102.227/News?useUnicode=true&characterEncoding=utf-8&useSSL=false #&allowMultiQueries=true
+    username: root
+    password: WeiTao@2020!
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  # 参考：https://www.cnblogs.com/zeng1994/p/03303c805731afc9aa9c60dbbd32a323.html
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址端口
+    host: 122.51.102.227
+    port: 6379
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 100
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+mybatis-plus:
+  type-aliases-package: com.demo.news.dao.model
+  mapper-locations: classpath*:com/demo/**/mapping/*.xml
+
+
+application:
+  name: news-back

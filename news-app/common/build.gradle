@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.android.compileSdkVersion
+    buildToolsVersion ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion ext.android.minSdkVersion
+        targetSdkVersion ext.android.targetSdkVersion
+        versionCode ext.android.versionCode
+        versionName ext.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    api ext.androidX.appcompat
+    api ext.androidX.constraintlayout
+    api ext.androidX.recyclerview
+
+    implementation ext.glide
+
+    api project(':base')
+    implementation project(':webview')
+}
