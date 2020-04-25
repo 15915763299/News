@@ -66,7 +66,7 @@ public class FragHeadlineNews extends MvvmFragment<FragHomeBinding, HeadlineNews
         viewDataBinding.tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewDataBinding.viewpager.setCurrentItem(tab.getPosition());
+                viewDataBinding.viewpager.setCurrentItem(tab.getPosition(), false);
             }
 
             @Override

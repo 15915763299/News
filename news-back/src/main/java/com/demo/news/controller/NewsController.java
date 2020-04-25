@@ -6,7 +6,6 @@ import com.demo.news.dao.model.News;
 import com.demo.news.entity.NewsListRes;
 import com.demo.news.entity.base.BaseRes;
 import com.demo.news.service.NewsService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -32,13 +31,11 @@ public class NewsController {
 
     @Resource(name = "NewsServiceImpl")
     private NewsService newsService;
-    @Resource
-    private ObjectMapper om;
 
     @ApiOperation(value = "获取分类目录")
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     @ResponseBody
-    private BaseRes<List<Category>> getCategory() throws Exception {
+    public BaseRes<List<Category>> getCategories() throws Exception {
         List<Category> categories = newsService.getCategory();
         return new BaseRes<>(categories);
     }

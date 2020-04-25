@@ -1,4 +1,6 @@
 # News
-简易新闻客户端，Android+Java后台，MVVM+OkHttp+RxJava+Retrofit，SpringBoot+Mybatis
+* Android新闻客户端 + Java后台
+* Android架构：MVVM + OkHttp + RxJava + Retrofit + CC(组件化)
+* 后端架构：SpringBoot + Mybatis + Redis + Shiro + AOP
 
 慢慢完善中.....
